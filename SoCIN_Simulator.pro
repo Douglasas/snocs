@@ -29,15 +29,15 @@ SUBDIRS += \
     SoCIN_Ring \
     SoCIN_Spider \
     SoCIN_3D \
-    Simulator \
-    tst_PG \
-    tst_Arbiter \
-    tst_ProgrammablePriorityEncoder \
-    tst_Multiplexrers \
-    tst_Demultiplexers \
-    tst_InputController \
-    tst_AndParam \
-    tst_PluginManager
+    Simulator # \
+    # tst_PG \
+    # tst_Arbiter \
+    # tst_ProgrammablePriorityEncoder \
+    # tst_Multiplexrers \
+    # tst_Demultiplexers \
+    # tst_InputController \
+    # tst_AndParam \
+    # tst_PluginManager
 
 OTHER_FILES += \
     app.pri \
