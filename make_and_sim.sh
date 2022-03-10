@@ -14,4 +14,6 @@ cd Simulator
 ./SNoCS 10 $MY_WORKSPACE $MY_PLUGINS
 cd ..
 
-mv $MY_WORKSPACE/*out results/
+mv $MY_WORKSPACE/*_out results/
+
+rm $MY_WORKSPACE/stopsim.out
