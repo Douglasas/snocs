@@ -8,6 +8,7 @@ SUBDIRS += \
     PG_Rotative \
     PG_RoundRobin \
     PG_Random \
+    PG_AI \
     FIFO \
     Routing_XY \
     Routing_Crossbar \
