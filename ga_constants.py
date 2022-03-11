@@ -18,7 +18,7 @@ def write_constant_file(constant: list):
     for i, line in enumerate(constant):
         data += "  {"
         for j, val in enumerate(line):
-            data += str(int(round(abs(val))))
+            data += str(abs(val))
             if j < len(constant[0])-1:
                 data += ', '
         data += '}'
@@ -107,6 +107,7 @@ ga_instance = pygad.GA(
     fitness_func=fitness_func,
     sol_per_pop=sol_per_pop,
     num_genes=num_genes,
+    gene_type=int,
     init_range_low=init_range_low,
     init_range_high=init_range_high,
     parent_selection_type=parent_selection_type,
@@ -120,4 +121,13 @@ ga_instance.run()
 solution, solution_fitness, solution_idx = ga_instance.best_solution()
 print("Parameters of the best solution : {solution}".format(solution=solution))
 print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness=solution_fitness))
+
+constant = array_split(solution, constant_dimensions[0])
+print('Best solution constants:')
+for i, line in enumerate(constant):
+    for j, val in enumerate(line):
+        print(abs(val), end=', ')
+    print('')
+
+
 
