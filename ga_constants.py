@@ -1,3 +1,5 @@
+#!/bin/python3
+
 from numpy import array_split, abs
 import subprocess
 import sys
@@ -16,7 +18,7 @@ def write_constant_file(constant: list):
     for i, line in enumerate(constant):
         data += "  {"
         for j, val in enumerate(line):
-            data += str(int(round(val)))
+            data += str(int(round(abs(val))))
             if j < len(constant[0])-1:
                 data += ', '
         data += '}'
@@ -76,7 +78,7 @@ def fitness_func(solution, solution_idx):
     subprocess.call("./make_and_sim.sh", shell=False)
     output = calculate_delay_avg()
     fitness = 1.0 / abs(output)
-    print(solution, solution_idx)
+    print(solution_idx, solution)
     print(f"avg: {output} | fitness: {fitness}")
     return fitness
 
@@ -118,3 +120,4 @@ ga_instance.run()
 solution, solution_fitness, solution_idx = ga_instance.best_solution()
 print("Parameters of the best solution : {solution}".format(solution=solution))
 print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness=solution_fitness))
+
