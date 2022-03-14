@@ -1,9 +1,6 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
-!my_worskpace/
-!my_worskpace/*
-
 *~
 *.autosave
 *.a
@@ -80,10 +77,14 @@ Thumbs.db
 *.sav
 
 # Simulator
-*.par
-*.tcf
 *.out
 *ext*
 class_*
 flow_*
 *summary*
+
+!*my-worskpace*/**.conf
+!*my-workspace*/**.tcf
+!*my-worskpace*/**.par
+
+
