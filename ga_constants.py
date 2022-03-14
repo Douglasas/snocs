@@ -6,7 +6,16 @@ import sys
 import pathlib
 import pygad
 
-constant_dimensions = (8, 8)
+constant_dimensions = (16, 5)
+workspaces = [
+    'my-workspace-nonuniform',
+    'my-workspace-perfectshuffle'
+]
+
+for i, w in enumerate(workspaces):
+    print(f"{i}) {w}")
+index = int(input("Select a workspace: "))
+worskpace = workspaces[index]
 
 # PG_AI constants writer
 def write_constant_file(constant: list):
@@ -74,8 +83,9 @@ def calculate_delay_avg() -> float:
 
 # genetic algorithm function
 def fitness_func(solution, solution_idx):
+    global worskpace
     write_constant_file(solution)
-    subprocess.call("./make_and_sim.sh", shell=False)
+    subprocess.call(["./make_and_sim.sh", worskpace], shell=False)
     output = calculate_delay_avg()
     fitness = 1.0 / abs(output)
     print(solution_idx, solution)
@@ -128,6 +138,3 @@ for i, line in enumerate(constant):
     for j, val in enumerate(line):
         print(abs(val), end=', ')
     print('')
-
-
-

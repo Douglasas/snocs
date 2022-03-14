@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASEDIR=$(pwd)
-MY_WORKSPACE=$BASEDIR/my_workspace
+MY_WORKSPACE=$BASEDIR/$1
 MY_PLUGINS=$BASEDIR/plugins
 
 rm -rf results
