@@ -17,6 +17,10 @@ for i, w in enumerate(workspaces):
 index = int(input("Select a workspace: "))
 worskpace = workspaces[index]
 
+fl = open("evolution.log", 'w+')
+fl.write(f"{worskpace}\n")
+fl.close()
+
 # PG_AI constants writer
 def write_constant_file(constant: list):
     constant = array_split(constant, constant_dimensions[0])
@@ -90,6 +94,9 @@ def fitness_func(solution, solution_idx):
     fitness = 1.0 / abs(output)
     print(solution_idx, solution)
     print(f"avg: {output} | fitness: {fitness}")
+    fl = open("evolution.log", 'a')
+    fl.write(f"solution_idx: {solution_idx} | avg: {output} | fitness: {fitness}\n")
+    fl.close()
     return fitness
 
 # genetic algorithm parameters
